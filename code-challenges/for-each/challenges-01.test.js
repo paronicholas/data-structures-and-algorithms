@@ -134,7 +134,6 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
   arr.forEach((value, index) => {
     if(value % 3 === 0 && value % 5 !== 0){
       arr.splice(index, 1, 'Fizz');
