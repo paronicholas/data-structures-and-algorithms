@@ -7,7 +7,7 @@ Write a function named sortBackwards that takes in an array of numbers and retur
 ------------------------------------------------------------------------------------------------ */
 
 const sortBackwards = (arr) => {
-  arr.sort((a,b) => b-a);
+  arr.sort((a,b) => b - a);
   return arr;
 };
 
@@ -79,7 +79,7 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbersByLength = (arr) => {
-  arr.sort((a,b)=>a.toString().length-b.toString().length);
+  arr.sort((a,b) => a.toString().length - b.toString().length);
   return arr;
 };
 
@@ -119,16 +119,13 @@ If two people have the same full name, the younger one should come first. Do not
 ------------------------------------------------------------------------------------------------ */
 
 const sortPeopleBetter = (arr) => {
-  // Solution code here...
   arr.sort((a,b) => {
     if(a.lastName < b.lastName) return -1;
     if(a.lastName > b.lastName) return 1;
     if(a.lastName === b.lastName){
       if(a.firstName < b.firstName) return -1;
       if(a.firstName > b.firstName) return 1;
-      if(a.firstName === b.firstName){
-        return a.age - b.age;
-      }
+      if(a.firstName === b.firstName) return a.age - b.age;
     }
   });
   return arr;
@@ -203,7 +200,7 @@ const sortSchedule = (arr) => {
     let day2 = b.dayOfWeek.toLowerCase();
     if(sorter[day1] < sorter[day2]) return -1;
     if(sorter[day1] > sorter[day2]) return 1;
-    if(sorter[day1] === sorter[day2]){return a.end - b.end}
+    if(sorter[day1] === sorter[day2]) return a.end - b.end;
   });
   return arr;
 };
