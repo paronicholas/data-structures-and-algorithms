@@ -67,12 +67,12 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
 const evenOdd = (arr) => {
-  const res = arr.map((value, index) => {
-    if(typeof value !== 'number'){ arr.splice(index, 1, 'N/A') } 
-    else if(value % 2 === 0){ arr.splice(index, 1, 'even') } 
-    else { arr.splice(index, 1, 'odd') }
+  const res = arr.map(value => {
+    if(typeof value !== 'number'){ return 'N/A' }
+    else if(value % 2 === 0){ return 'even' }
+    else { return 'odd' }
   });
-  return arr;
+  return res;
 };
 
 /* ------------------------------------------------------------------------------------------------
