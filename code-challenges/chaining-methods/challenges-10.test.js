@@ -32,9 +32,7 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 
 const totalSum = (input) => {
   let count = 0;
-  input.map(val => {
-    val.map(val2 => count+= val2);
-  });
+  input.map(val => val.map(val2 => count+= val2));
   return count;
 };
 
@@ -55,14 +53,10 @@ const divisibleByFiveTwoToThePower = (input) => {
   let inner = [];
   input.filter(val => {
     val.forEach(val => {
-      if(typeof val === 'string'){
-        return false;
-      } else if(val %5 !== 0){
-        return false;
-      } else if(val % 5 === 0){
-        inner.push(2**val);
-      } 
-    })
+      if(typeof val === 'string'){ return false } 
+      else if(val %5 !== 0){ return false }
+      else if(val % 5 === 0){ inner.push(2**val) }
+    });
   res.push(inner);
   inner = [];
   });
@@ -134,15 +128,15 @@ let starWarsData = [{
 let findMaleAndFemale = (data) => {
   let arr = [];
   let res = '';
-  data.forEach(val => {
+  data.map(val => {
     if(val.gender === 'male' || val.gender === 'female'){
       arr.push(val.name);
     }
   });
-  for(let i=0;i<arr.length-1;i++){
-    res += `${arr[i]} and `;
-  }
-  res += arr[arr.length-1];
+  arr.map((val, index) => {
+    if(index < arr.length-1){ res += `${val} and `}
+    else { res+= `${val}` }
+  });
   return res;
 };
 
@@ -157,14 +151,12 @@ let findShortest = (data) => {
   const res = [];
   data.map(person => res.push(parseInt(person.height)));
   let shortest = res[0];
-  for(let i=1;i<res.length;i++){
-    if(res[i]<shortest){
-      shortest = res[i];
-    }
-  }
+  res.map(val => {
+    if(val<shortest){ shortest = val }
+  })
   shortest = JSON.stringify(shortest);
   data.map(person => {
-    if(person.height === shortest){ans=person.name}
+    if(person.height === shortest){ ans=person.name }
   });
   return ans;
 };
